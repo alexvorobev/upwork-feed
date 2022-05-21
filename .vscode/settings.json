@@ -4,5 +4,8 @@
   // enable per-language (here: Prettier as formatter)
   "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.words": [
+    "swiper"
+  ]
 }

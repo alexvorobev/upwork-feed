@@ -39,7 +39,7 @@ const Header: FC<Props> = ({ title, buttons }) => {
   );
 
   return (
-    <div className='w-full mb-4 flex align-center justify-between'>
+    <div className='w-full mb-8 flex align-center justify-between'>
       <h1 className='text-4xl font-black dark:text-slate-300'>{title}</h1>
       {renderedButtons}
     </div>

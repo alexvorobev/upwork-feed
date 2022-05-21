@@ -5,6 +5,7 @@ import Header from 'components/Header';
 import { HeaderButton } from 'components/Header/types';
 import ReloadIcon from 'icons/ReloadIcon';
 import SettingsIcon from 'icons/SettingsIcon';
+import FeedSection from 'components/FeedSection';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -29,6 +30,8 @@ const HomePage = () => {
   return (
     <div>
       <Header title='Upwork RSS' buttons={buttonsConfig} />
+      <FeedSection title='Job feed' />
+      <FeedSection title='Recently added' />
     </div>
   );
 };
