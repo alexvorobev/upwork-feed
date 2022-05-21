@@ -6,12 +6,7 @@ import { WithChildren } from 'types/WithChildren';
 
 const Slider: FC<WithChildren> = ({ children }) => {
   const slides = useMemo(
-    () =>
-      Children.map(children, (child) => (
-        <SwiperSlide className='!w-30'>
-            {child}
-        </SwiperSlide>
-      )) || [],
+    () => Children.map(children, (child) => <SwiperSlide className='!w-30'>{child}</SwiperSlide>) || [],
     [children],
   );
 
