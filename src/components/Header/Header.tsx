@@ -14,7 +14,8 @@ const Header: FC<Props> = ({ title, buttons }) => {
         <button
           key={label}
           className={`
-            ml-4 border-2
+            ml-4
+            border-2
             rounded-full
             p-2
             text-gray-400
