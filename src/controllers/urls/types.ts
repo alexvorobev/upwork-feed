@@ -6,7 +6,7 @@ export enum PERIOD {
 }
 
 export interface FeedData {
-  id: number;
+  id: string;
   title: string;
   url: string;
   period: PERIOD;

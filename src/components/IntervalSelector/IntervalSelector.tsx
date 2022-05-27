@@ -21,7 +21,7 @@ const IntervalSelector: FC<Props> = ({ value = PERIOD.ONE, onChange }) => {
     'justify-center',
     'text-gray-900',
     'hover:text-slate-800',
-    'dark:text-white'
+    'dark:text-white',
   );
 
   useEffect(() => {

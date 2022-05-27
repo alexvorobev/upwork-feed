@@ -4,7 +4,7 @@ import { FeedData } from './types';
 
 export interface UrlsListContextValue {
   list: FeedData[];
-  push: (data: FeedData) => void;
+  push: (data: Omit<FeedData, 'id' | 'period'>) => void;
   update: (data: FeedData) => void;
   remove: (id: number) => void;
 }
