@@ -6,12 +6,15 @@ import getUniqId from 'utils/getUniqId';
 import { FeedData, PERIOD } from './types';
 import UrlsListContext from './UrlsListContext';
 import useDatabase from './useDatabase';
+import getNextDate from './utils/getNextDate';
 
 const ID_LENGTH = 10;
 
 const UrlsListProvider: FC<WithChildren> = ({ children }) => {
   const [list, setList] = useState<FeedData[]>([]);
-  const { feeds, putFeed } = useDatabase();
+  const { feeds, putFeed, putSchedule } = useDatabase();
+
+  console.log(getNextDate(PERIOD.FIVE));
 
   useEffect(() => {
     if (feeds) {
@@ -29,11 +32,14 @@ const UrlsListProvider: FC<WithChildren> = ({ children }) => {
   );
 
   const update = useCallback(
-    (data: FeedData) => {
-      console.log(data);
+    (data: FeedData, updateSchedule?: boolean) => {
       putFeed(data);
+
+      if (updateSchedule) {
+        putSchedule({ feed: data.id, date: getNextDate(data.period) });
+      }
     },
-    [putFeed],
+    [putFeed, putSchedule],
   );
   const remove = useCallback(() => {}, []);
 

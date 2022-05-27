@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 
 import IntervalSelector from 'components/IntervalSelector';
-import { FeedData } from 'controllers/urls/types';
+import { FeedData, PERIOD } from 'controllers/urls/types';
 import DeleteIcon from 'icons/DeleteIcon';
 import EditIcon from 'icons/EditIcon';
 import useUrls from 'controllers/urls/useUrls';
@@ -76,7 +76,10 @@ const FeedsForm = () => {
       <p className='w-full shrink-1 h-6 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400 dark:text-slate-500'>
         {url}
       </p>
-      <IntervalSelector value={period} />
+      <IntervalSelector
+        value={period}
+        onChange={(newPeriod: PERIOD) => update({ title, url, id, period: newPeriod }, true)}
+      />
       <div className='shrink-0 flex gap-4'>
         <button className={rowActionClasses} onClick={() => setEditingID(id)}>
           <EditIcon />

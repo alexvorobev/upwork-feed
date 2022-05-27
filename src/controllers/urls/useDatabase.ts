@@ -74,7 +74,15 @@ const useURLsDB = () => {
     [database, readFromDB],
   );
 
-  return { feeds, putFeed };
+  const putSchedule = useCallback(
+    ({ feed, date }: { feed: string; date: Date }) => {
+      const transaction = database?.transaction(DB_STORES, 'readwrite').objectStore('schedule');
+      transaction?.put({ data: { feed, date: date.toUTCString() } }, feed);
+    },
+    [database],
+  );
+
+  return { feeds, putFeed, putSchedule };
 };
 
 export default useURLsDB;

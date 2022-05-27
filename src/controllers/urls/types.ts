@@ -1,8 +1,9 @@
+/* eslint-disable no-magic-numbers */
 export enum PERIOD {
-  ONE,
-  FIVE,
-  TEN,
-  THIRTY,
+  ONE = 1,
+  FIVE = 5,
+  TEN = 10,
+  THIRTY = 30,
 }
 
 export interface FeedData {
