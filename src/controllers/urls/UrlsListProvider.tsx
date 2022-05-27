@@ -14,10 +14,10 @@ const UrlsListProvider: FC<WithChildren> = ({ children }) => {
   const { feeds, putFeed } = useDatabase();
 
   useEffect(() => {
-    if(feeds) {
+    if (feeds) {
       setList(feeds);
     }
-  }, [feeds])
+  }, [feeds]);
 
   const push = useCallback(
     (data: Omit<FeedData, 'id' | 'period'>) => {
@@ -28,10 +28,13 @@ const UrlsListProvider: FC<WithChildren> = ({ children }) => {
     [list, putFeed],
   );
 
-  const update = useCallback((data: FeedData) => {
-    console.log(data);
-    putFeed(data);
-  }, [putFeed]);
+  const update = useCallback(
+    (data: FeedData) => {
+      console.log(data);
+      putFeed(data);
+    },
+    [putFeed],
+  );
   const remove = useCallback(() => {}, []);
 
   return <UrlsListContext.Provider value={{ list, push, update, remove }}>{children}</UrlsListContext.Provider>;

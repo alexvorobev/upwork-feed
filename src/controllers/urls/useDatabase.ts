@@ -52,8 +52,8 @@ const useURLsDB = () => {
       const readingTransaction = database.transaction('feeds', 'readonly');
       const feedsList = readingTransaction.objectStore('feeds').getAll();
       feedsList.onsuccess = () => {
-        setFeeds(feedsList.result.map((item: {data: FeedData}) => item.data));
-      }
+        setFeeds(feedsList.result.map((item: { data: FeedData }) => item.data));
+      };
     }
   }, [database]);
 

@@ -52,13 +52,13 @@ const FeedsForm = () => {
   const isValidURL = useMemo(() => URL_REGEXP.test(formDataURL), [formDataURL]);
   const isValidForm = useMemo(() => formDataTitle?.length > 3 && isValidURL, [formDataTitle?.length, isValidURL]);
   const { list, push, update } = useUrls();
-  const editingItem = useMemo(() => list.find(({id}) => id === editingID), [editingID, list]);
+  const editingItem = useMemo(() => list.find(({ id }) => id === editingID), [editingID, list]);
 
   // On editing
   useEffect(() => {
-    if(editingID) {
-      const item = list.find(({id}) => id === editingID);
-      if(item) {
+    if (editingID) {
+      const item = list.find(({ id }) => id === editingID);
+      if (item) {
         setValue('title', item.title);
         setValue('url', item.url);
       }
@@ -91,7 +91,7 @@ const FeedsForm = () => {
   const onSubmit = useCallback(
     ({ title, url }: Omit<FeedData, 'id' | 'period'>) => {
       if (isValidForm) {
-        if(editingItem) {
+        if (editingItem) {
           update({
             ...editingItem,
             title,
